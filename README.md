@@ -2,6 +2,8 @@
   <img src="https://raw.githubusercontent.com/lightninjay/mod-companion-caddy/refs/heads/main/banner.png" alt="Companion Caddy Banner" width="800px">
   <H1><b>Companion Caddy</b></H1><H3>Author: lightninjay<br>with the help of Claude.ai</H3><br>
 
+Inspired by the [Murloc Minder](https://www.curseforge.com/wow/addons/murloc-minder) addon developed by Kagrok
+
 An [AzerothCore](https://www.azerothcore.org/) module and companion World of Warcraft addon
 for the 3.3.5a client that turns summoned companion pets into something worth looking after:
 feed, play with, rest, and clean your companion to keep it out of neglect, send it out
