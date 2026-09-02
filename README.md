@@ -30,12 +30,12 @@ the addon will let you earn treats to be able to buy in-addon items to care for 
 
 <div align="center">
 
-<img src="screenshots/screenshot-Habitat.jpg" alt="Habitat panel" width="1080px"><br><br>
-<img src="screenshots/screenshot-Store.jpg" alt="Store panel" width="1080px"><br><br>
-<img src="screenshots/screenshot-Info.jpg" alt="Info panel" width="1080px"><br><br>
-<img src="screenshots/screenshot-customization.jpg" alt="Customization panel" width="1080px"><br><br>
-<img src="screenshots/screenshot-promo.jpg" alt="Promo panel" width="1080px"><br><br>
-<img src="screenshots/screenshot-config.jpg" alt="Config options" width="1080px">
+<img src="https://raw.githubusercontent.com/lightninjay/mod-companion-caddy/refs/heads/main/screenshots/screenshot-Habitat.jpg" alt="Habitat panel" width="1080px"><br><br>
+<img src="https://raw.githubusercontent.com/lightninjay/mod-companion-caddy/refs/heads/main/screenshots/screenshot-Store.jpg" alt="Store panel" width="1080px"><br><br>
+<img src="https://raw.githubusercontent.com/lightninjay/mod-companion-caddy/refs/heads/main/screenshots/screenshot-Info.jpg" alt="Info panel" width="1080px"><br><br>
+<img src="https://raw.githubusercontent.com/lightninjay/mod-companion-caddy/refs/heads/main/screenshots/screenshot-customization.jpg" alt="Customization panel" width="1080px"><br><br>
+<img src="https://raw.githubusercontent.com/lightninjay/mod-companion-caddy/refs/heads/main/screenshots/screenshot-promo.jpg" alt="Promo panel" width="1080px"><br><br>
+<img src="https://raw.githubusercontent.com/lightninjay/mod-companion-caddy/refs/heads/main/screenshots/screenshot-config.jpg" alt="Config options" width="1080px">
 
 </div>
 
