@@ -1,0 +1,101 @@
+###############################################################################
+#  mod-companion-caddy.conf
+#
+#  Server-side configuration for the Companion Caddy promo point system.
+###############################################################################
+
+[worldserver]
+
+#
+#   CompanionCaddy.DailyCap
+#       Maximum promo points a character can EARN from challenges per
+#       calendar day (resets at server midnight, local time).
+#         > 0  -- normal daily cap (e.g. 200)
+#         0    -- earning is UNLIMITED for the day; the cap itself is off,
+#                 but the promo point feature is still fully active.
+#         -1   -- promo points are disabled entirely: nothing is earned,
+#                 the promo shop is hidden client-side, and the addon is
+#                 told not to log "daily limit reached" errors, since the
+#                 feature being off isn't the same thing as the cap being
+#                 hit. Useful e.g. on a TCG-FREE server where Promo Points
+#                 have no purpose and the shop should just go away.
+#       Default: 200
+#
+CompanionCaddy.DailyCap = 200
+
+#
+#   CompanionCaddy.ChallengeCooldown
+#       Minimum seconds between point awards for the SAME challenge type.
+#       This is tracked in-memory and resets when a player relogs.
+#       Prevents rapid button-mashing from awarding points many times.
+#       Default: 600 (10 minutes)
+#
+CompanionCaddy.ChallengeCooldown = 600
+
+#
+#   CompanionCaddy.ScavengeLootEnable
+#       Whether scavenging can award a bonus item on completion, tiered by
+#       scavenge duration (green/30min, blue/1hr, purple/2hr -- see the
+#       ScavengeLootPool* settings below for what each tier can drop).
+#       This is entirely separate from the normal Treats reward, which is
+#       client-side and always happens.
+#       Default: 1 (enabled)
+#
+CompanionCaddy.ScavengeLootEnable = 1
+
+#
+#   CompanionCaddy.ScavengeLootChanceGreen / *Blue / *Purple
+#       Percent chance (0-100) of a bonus item on a completed scavenge of
+#       that tier. Higher tiers take longer but drop lower-odds, since
+#       the reward tier itself (purple vs green) already reflects rarity.
+#       Defaults: Green 20, Blue 12, Purple 6
+#
+CompanionCaddy.ScavengeLootChanceGreen = 20
+CompanionCaddy.ScavengeLootChanceBlue = 12
+CompanionCaddy.ScavengeLootChancePurple = 6
+
+#
+#   CompanionCaddy.ScavengeLootPoolGreen / *Blue / *Purple
+#       Comma-separated item_template entries that tier can drop on a
+#       successful roll. One entry is picked at random from the matching
+#       tier's list. Leave a tier blank (or omit its line entirely) to
+#       disable bonus loot for just that tier -- ScavengeLootEnable still
+#       governs the feature as a whole.
+#
+#       These are intentionally empty by default. Pick item IDs that
+#       actually exist -- and make sense for the quality tier they're
+#       listed under -- on YOUR server's item_template table; nothing is
+#       seeded here since a wrong entry would hand out an item that
+#       doesn't match its promised tier, or doesn't exist/is BoP/is
+#       quest-only on a given core's DB. Unparseable or non-numeric
+#       entries are logged and skipped rather than breaking the whole list.
+#
+#       Example (do not use as-is -- verify these against your own DB):
+#       CompanionCaddy.ScavengeLootPoolPurple = 1263,18563,21877
+#
+CompanionCaddy.ScavengeLootPoolGreen =
+CompanionCaddy.ScavengeLootPoolBlue =
+CompanionCaddy.ScavengeLootPoolPurple =
+
+#
+#   CompanionCaddy.ScavengeCareMultStruggling / *Okay / *Good / *Thriving
+#       Multiplier applied to the ScavengeLootChance* above, based on how
+#       well the companion's Need bars (Hunger/Joy/Energy/Cleanliness)
+#       were being kept up at the moment it was sent scavenging -- see
+#       CC:GetCareTier in Core.lua for how the addon computes this.
+#       Final chance is clamped to 0-100 regardless of how these are set.
+#
+#       This value is reported by the addon, on the same trust basis as
+#       the duration tier (green/blue/purple) already is -- the server
+#       enforces real elapsed time independently either way, but has no
+#       equivalent independent check for care levels. Treat this as a
+#       vanity/engagement multiplier, not an anti-cheat boundary: a
+#       tampered client could always report "thriving", the same way it
+#       could always claim "purple" duration odds.
+#
+#       Defaults: Struggling 0.5, Okay 0.8, Good 1.0, Thriving 1.4
+#
+CompanionCaddy.ScavengeCareMultStruggling = 0.5
+CompanionCaddy.ScavengeCareMultOkay = 0.8
+CompanionCaddy.ScavengeCareMultGood = 1.0
+CompanionCaddy.ScavengeCareMultThriving = 1.4
